@@ -39,12 +39,10 @@ while play == True:
         food.refresh()
         scoreboard.add()
         snake.add()
-    
+
     # Collision with tail
-    for piece in snake.pieces:
-        if piece == snake.head:
-            pass
-        elif snake.head.distance(piece) < 10:
+    for piece in snake.pieces[1:]:
+        if snake.head.distance(piece) < 10:
             play = False
             scoreboard.game_over()
 
