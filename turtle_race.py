@@ -63,8 +63,6 @@ def start_race():
                 race = False
                 break
 
-
 start_race()
-
 
 screen.exitonclick()
