@@ -42,8 +42,11 @@ while play == True:
     
     # Collision with tail
     for piece in snake.pieces:
-        if snake.head.distance(piece) < 10:
+        if piece == snake.head:
+            pass
+        elif snake.head.distance(piece) < 10:
             play = False
+            scoreboard.game_over()
 
     # Growing Bigger
     snakeX = snake.head.xcor()
