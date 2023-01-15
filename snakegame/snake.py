@@ -47,3 +47,10 @@ class Snake():
         if (self.pieces[0].heading() == 180):
             return
         self.head.setheading(0)
+
+    def add(self):
+        piece = Turtle("square")
+        piece.pu()
+        piece.color("white")
+        piece.goto(self.pieces[-1].position())
+        self.pieces.append(piece)
