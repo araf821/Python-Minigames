@@ -8,13 +8,11 @@ class Food(Turtle):
         self.shape("circle")
         self.penup()
         self.shapesize(0.5)
-        self.color("pink")
+        self.color("skyblue")
         self.speed("fastest")
         self.refresh()
 
     def refresh(self):
         x = random.randint(-360, 360)
         y = random.randint(-360, 360)
-        if y % 20 != 0:
-            y += 10
         self.goto(x, y)
