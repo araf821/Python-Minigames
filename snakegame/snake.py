@@ -16,6 +16,7 @@ class Snake():
             x -= 20
 
             self.pieces.append(piece)
+        self.head = self.pieces[0]
 
     def move(self):
         for piece in range(len(self.pieces) - 1, 0, -1):
@@ -27,23 +28,22 @@ class Snake():
     def move_up(self):
         if (self.pieces[0].heading() == 270):
             return
-        for piece in self.pieces:
-            piece.setheading(90)
+
+        self.head.setheading(90)
 
     def move_down(self):
         if (self.pieces[0].heading() == 90):
             return
-        for piece in self.pieces:
-            piece.setheading(270)
+        self.head.setheading(270)
+        
 
     def move_left(self):
         if (self.pieces[0].heading() == 0):
             return
-        for piece in self.pieces:
-            piece.setheading(180)
+        self.head.setheading(180)
+
 
     def move_right(self):
         if (self.pieces[0].heading() == 180):
             return
-        for piece in self.pieces:
-            piece.setheading(0)
+        self.head.setheading(0)
