@@ -1,6 +1,7 @@
-from turtle import Screen, Turtle
+from turtle import Screen
 from snake import Snake
 from time import sleep
+from food import Food
 
 screen = Screen()
 screen.setup(800, 800)
@@ -10,22 +11,7 @@ screen.tracer(0)
 screen.listen()
 
 snake = Snake()
-
-# def move_up():
-#     for piece in body_pieces:
-#         piece.heading(90)
-
-# def move_down():
-#     for piece in body_pieces:
-#         piece.heading(270)
-
-# def move_left():
-#     for piece in body_pieces:
-#         piece.heading(180)
-
-# def move_right():
-#     for piece in body_pieces:
-#         piece.heading(0)
+food = Food()
 
 play = True
 while play == True:
