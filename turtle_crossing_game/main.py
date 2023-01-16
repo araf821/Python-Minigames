@@ -12,19 +12,28 @@ s.tracer(0)
 player = Player()
 
 s.listen()
-s.onkey(key="w", fun=player.move)
+s.onkey(key="w", fun=player.up)
+s.onkey(key="s", fun=player.down)
 
 # Level count keeper
 ui = UI()
 # Depending on the level, number of cars that show up on screen will vary
-cars_to_generate = [6, 10, 14, 19, 24]
+cars_to_generate = [20, 18, 15]
 level = 1
-cars = Cars(cars_to_generate[level + 2])
-
-s.tracer(1)
+cars = Cars()
 
 play = True
 while play:
+    sleep(0.01)
+    s.update()
+    cars.generate_car(cars_to_generate[level - 1])
     cars.move()
+
+    if player.ycor() > 230:
+        cars.clear()
+        player.goto(0, -230)
+        level += 1
+        ui.level_up(level)
+
 
 s.exitonclick()
