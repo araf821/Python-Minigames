@@ -11,7 +11,7 @@ class Ball(Turtle):
     def create_ball(self):
         self.shape("circle")
         self.pu()
-        # self.speed(100)
+        self.speed(100)
         self.color("white")
     
     def move(self):

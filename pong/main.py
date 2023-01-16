@@ -18,29 +18,44 @@ computer_paddle = CompPaddle()
 ball = Ball()
 
 # Assiging random movements for the ball
-coordinates = [-2, 2]
+coordinates = [-7.5, 7.5]
 ball.random_y = random.choice(coordinates)
 ball.random_x = random.choice(coordinates)
 
 screen.onkey(key="w", fun=player_paddle.up)
 screen.onkey(key="s", fun=player_paddle.down)
 
-screen.update()
+# screen.update()
 screen.tracer(1)
 
 play = True
 while play:
+    # screen.update()
     ball.move()
-    if ball.xcor() > 380 or ball.xcor() < -380:
-        ball.random_x *= -1
+    computer_paddle.move()
+    if ball.xcor() > 380:
+        score_keeper.player_add()
+        sleep(1)
+        ball.reset_position()
+        ball.random_y = random.choice(coordinates)
+        ball.random_x = random.choice(coordinates)
+    elif ball.xcor() < -380:
+        score_keeper.comp_add()
+        sleep(1)
+        ball.reset_position()
+        ball.random_y = random.choice(coordinates)
+        ball.random_x = random.choice(coordinates)
     elif ball.ycor() > 280 or ball.ycor() < -280:
         ball.random_y *= -1
-    elif ball.distance(player_paddle) < 50 and ball.xcor() < -330:
+    elif ball.distance(player_paddle) < 45 and ball.xcor() < -320:
         ball.random_x *= -1
+        ball.setpos(-325, ball.ycor())
         print("collided")
-    elif ball.distance(computer_paddle) < 50 and ball.xcor() > 340:
+    elif ball.distance(computer_paddle) < 45 and ball.xcor() > 320:
         ball.random_x *= -1
+        ball.setpos(321, ball.ycor())
         print("collided")
-
+    elif computer_paddle.ycor() > 250 or computer_paddle.ycor() < -250:
+        computer_paddle.y_speed *= -1
 
 screen.exitonclick()
