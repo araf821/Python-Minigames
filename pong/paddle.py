@@ -1,29 +1,36 @@
 from turtle import Turtle
 
 class Paddle(Turtle):
-    player_paddle_pieces = []
-    computer_paddle_pieces = []
+    y = 0
 
     def __init__(self) -> None:
         super().__init__()
         self.create_paddle()
 
     def create_paddle(self):
-        # Player paddle
-        y = 50
-        for _ in range(5):
-            sq = Turtle("square")
-            sq.color("white")
-            sq.pu()
-            sq.goto(-380, y)
-            y -= 20
-            self.player_paddle_pieces.append(sq)
-        # Enemy Paddle
-        y = 50
-        for _ in range(5):
-            sq = Turtle("square")
-            sq.color("white")
-            sq.pu()
-            sq.goto(375, y)
-            y -= 20
-            self.computer_paddle_pieces.append(sq)
+        self.shape("square")
+        self.color("white")
+        self.shapesize(stretch_wid=5, stretch_len=1)
+        self.pu()
+        self.speed(50)
+        self.goto(-380, 0)
+    
+    def up(self):
+        self.y += 20
+        self.goto(-380, self.y)
+
+    def down(self):
+        self.y -= 20
+        self.goto(-380, self.y)
+        
+class CompPaddle(Turtle):
+    def __init__(self) -> None:
+        super().__init__()
+        self.create_paddle()
+    
+    def create_paddle(self):
+        self.shape("square")
+        self.color("white")
+        self.shapesize(stretch_wid=5, stretch_len=1)
+        self.pu()
+        self.goto(375, 0)
