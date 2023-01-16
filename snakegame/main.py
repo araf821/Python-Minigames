@@ -8,7 +8,7 @@ screen = Screen()
 screen.setup(800, 800)
 screen.bgcolor("black")
 screen.title("Snek")
-screen.tracer(0)
+screen.tracer(0) 
 screen.listen()
 scoreboard = Scoreboard()
 
