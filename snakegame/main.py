@@ -20,11 +20,15 @@ food = Food()
 screen.update()
 sleep(1)
 
+def quit_game():
+    screen.bye()
+
 # Keyboard controls
 screen.onkey(fun=snake.move_up, key="w")
 screen.onkey(fun=snake.move_left, key="a")
 screen.onkey(fun=snake.move_down, key="s")
 screen.onkey(fun=snake.move_right, key="d")
+screen.onkey(fun=quit_game, key="Escape")
 
 play = True
 while play == True:
