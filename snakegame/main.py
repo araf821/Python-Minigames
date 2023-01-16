@@ -18,7 +18,7 @@ snake = Snake()
 
 food = Food()
 screen.update()
-sleep(2)
+sleep(1)
 
 # Keyboard controls
 screen.onkey(fun=snake.move_up, key="w")
