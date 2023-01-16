@@ -29,11 +29,21 @@ while play:
     cars.generate_car(cars_to_generate[level - 1])
     cars.move()
 
+    # New level initializer
     if player.ycor() > 230:
         cars.clear()
         player.goto(0, -230)
         level += 1
-        ui.level_up(level)
+        if level != 4:
+            ui.level_up(level)
+        else:
+            ui.game_finished()
+            play = False
+
+    for car in cars.cars:
+        if player.distance(car) < 20:
+            player.goto(0, -300)
+            ui.game_over()
 
 
 s.exitonclick()

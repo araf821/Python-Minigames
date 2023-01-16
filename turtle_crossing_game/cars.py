@@ -28,6 +28,7 @@ class Cars():
     def clear(self):
         for car in self.cars:
             car.clear()
+            car.ht()
         self.cars = []
 
     # def generate_cars(self, num_cars):
