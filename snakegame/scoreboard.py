@@ -5,7 +5,7 @@ FONT = ("Courier", 24, "bold")
 
 class Scoreboard(Turtle):
     score = 0
-
+    highscore = 0
     def __init__(self):
         super().__init__()
         self.color("white")
@@ -15,7 +15,7 @@ class Scoreboard(Turtle):
         self.refresh_text()
 
     def refresh_text(self):
-        self.write(f"Score: {self.score}", move=False,
+        self.write(f"Score: {self.score}   Highscore: {self.highscore}", move=False,
                    align="center", font=FONT)
 
     def add(self):
@@ -23,6 +23,11 @@ class Scoreboard(Turtle):
         self.score += 1
         self.refresh_text()
 
-    def game_over(self):
-        self.goto(0, 0)
-        self.write("Game Over!", move=False, align="center", font=("Courier", 42, "bold"))
+    def reset(self):
+        if self.score > self.highscore:
+            self.highscore = self.score
+        self.score = 0
+        self.clear()
+        self.refresh_text()
+
+    

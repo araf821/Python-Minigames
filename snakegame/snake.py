@@ -4,9 +4,12 @@ move_speed = 20
 
 
 class Snake():
-    pieces = []
 
     def __init__(self) -> None:
+        self.create_snake()
+
+    def create_snake(self):
+        self.pieces = []
         x = 0
         for _ in range(5):
             piece = Turtle("square")
@@ -54,3 +57,8 @@ class Snake():
         piece.color("white")
         piece.goto(self.pieces[-1].position())
         self.pieces.append(piece)
+
+    def reset(self):
+        for piece in self.pieces:
+            piece.ht()
+        self.create_snake()

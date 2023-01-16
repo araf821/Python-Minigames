@@ -32,25 +32,24 @@ while play == True:
     sleep(0.05)
     snake.move()
 
-    # Detecting collisions
-
     # Collecting Food
     if snake.head.distance(food) < 20:
         food.refresh()
         scoreboard.add()
         snake.add()
 
+    # Detecting collisions
     # Collision with tail
     for piece in snake.pieces[1:]:
         if snake.head.distance(piece) < 10:
-            play = False
-            scoreboard.game_over()
+            scoreboard.reset()
+            snake.reset()
 
-    # Growing Bigger
+    # Wall Collisions
     snakeX = snake.head.xcor()
     snakeY = snake.head.ycor()
     if snakeX > 380 or snakeX < -380 or snakeY > 380 or snakeY < -380:
-        play = False
-        scoreboard.game_over()
+        scoreboard.reset()
+        snake.reset()
 
 screen.exitonclick()
