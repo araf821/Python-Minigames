@@ -11,7 +11,7 @@ class Score(Turtle):
         self.goto(-100, 200)
         self.write(f"{self.player_score}", align="center", font=("Courier", 60, "normal"))
         self.goto(100, 200)
-        self.write(f"asdfasdf", align="center", font=("Courier", 60, "normal"))
+        self.write(f"asdfasdf ", align="center", font=("Courier", 60, "normal"))
 
     def player_add(self):
         self.player_score += 1
