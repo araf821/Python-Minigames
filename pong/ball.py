@@ -1,5 +1,4 @@
 from turtle import Turtle
-import random
 
 class Ball(Turtle):
     random_y = 0

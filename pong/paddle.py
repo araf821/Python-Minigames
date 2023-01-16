@@ -1,6 +1,4 @@
 from turtle import Turtle
-from random import choice
-
 
 class Paddle(Turtle):
     y = 0
@@ -29,7 +27,7 @@ class Paddle(Turtle):
 
 
 class CompPaddle(Turtle):
-    y_speed = 20
+    y_speed = 30
 
     def __init__(self) -> None:
         super().__init__()

@@ -1,4 +1,4 @@
-from turtle import Screen
+from turtle import Screen, Turtle
 from time import sleep
 from score import Score
 from ball import Ball
@@ -11,6 +11,20 @@ screen.bgcolor("black")
 screen.listen()
 screen.tracer(0)
 screen.title("Pawng")
+
+line = Turtle()
+line.color("white")
+line.ht()
+line.setheading(270)
+line.pensize(5)
+line.pu()
+line.goto(0, 275)
+for _ in range (14):
+    line.pendown()
+    line.fd(20)
+    line.pu()
+    line.fd(20)
+
 
 score_keeper = Score()
 player_paddle = Paddle()
